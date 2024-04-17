@@ -16,4 +16,4 @@ RUN apt-get update \
 EXPOSE 8080
 
 COPY --from=builder /build/http_server /bin/http_server
-CMD "/bin/http_server"
+CMD "/bin/bash"
