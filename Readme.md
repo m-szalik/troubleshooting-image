@@ -28,9 +28,14 @@ spec:
   containers:
   - name: shell
     image: szalik/troubleshooting-image
+    command: ["sleep", "7200"]
     imagePullPolicy: Always
     ports:
       - containerPort: 8080
         protocol: TCP
+```
+
+```shell
+kubectl exec -it troubleshooting -- /bin/bash
 ```
 
