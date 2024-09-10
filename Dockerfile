@@ -13,7 +13,7 @@ RUN go install -v github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 FROM ubuntu
 
 RUN apt-get update \
- && DEBIAN_FRONTEND="noninteractive" apt-get install --yes dnsutils dnswalk telnet curl iputils-ping net-tools \
+ && DEBIAN_FRONTEND="noninteractive" apt-get install --yes dnsutils dnswalk telnet curl iputils-ping net-tools iptables \
  && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080
