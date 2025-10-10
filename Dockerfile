@@ -21,5 +21,6 @@ EXPOSE 8080
 COPY --from=builder /build/http_server/http_server /usr/local/bin/http_server
 COPY --from=builder /go/bin/grpcurl /usr/local/bin/grpcurl
 
-CMD "/bin/bash"
+CMD ["sleep", "infinity"]
+
 
