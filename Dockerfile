@@ -13,7 +13,7 @@ RUN go install -v github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 FROM ubuntu
 
 RUN apt-get update \
- && DEBIAN_FRONTEND="noninteractive" apt-get install --yes dnsutils dnswalk telnet curl iputils-ping net-tools iptables iproute2 \
+ && DEBIAN_FRONTEND="noninteractive" apt-get install --yes dnsutils dnswalk telnet curl iputils-ping net-tools netcat-traditional \
  && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080
@@ -21,6 +21,5 @@ EXPOSE 8080
 COPY --from=builder /build/http_server/http_server /usr/local/bin/http_server
 COPY --from=builder /go/bin/grpcurl /usr/local/bin/grpcurl
 
-CMD ["sleep", "infinity"]
-
+CMD "/bin/bash"
 
